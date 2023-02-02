@@ -44,7 +44,7 @@ let promiseTwo = new Promise((resolve,reject)=>{
     public_users.get('/isbn/:isbn',function (req, res) {
     let isbn = req.params.isbn;
     for(let i in books){
-        if(books[i]['isbn'] == isbn){
+        if(i == isbn){
             return res.status(200).json(JSON.stringify(books[i],null,4));
         }
     }
@@ -92,7 +92,7 @@ let promiseFour = new Promise((reject,resolve)=>{
 public_users.get('/review/:isbn',function (req, res) {
   let isbn = req.params.isbn;
   for(let i in books){
-      if(books[i]['isbn'] == isbn){
+      if(i== isbn){
         return res.status(200).json(JSON.stringify(books[i]['review'],null,4));
       }
   }
